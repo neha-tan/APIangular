@@ -8,9 +8,10 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-mongoose.connect('mongodb+srv://root:vVevJky93l9yzQEL@neha.rvvto.mongodb.net/makeMyMeal?retryWrites=true&w=majority', () => {
+mongoose.connect('mongodb+srv://root:vVevJky93l9yzQEL@neha.rvvto.mongodb.net/makeMyMealh?retryWrites=true&w=majority', () => {
     console.log("Database Connection Stablished")
 });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
