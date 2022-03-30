@@ -32,7 +32,7 @@ exports.signin = (request, response, next) => {
         .then(result => {
             console.log(result);
             if (result)
-                return response.status(302).json(result);
+                return response.status(201).json(result);
             else
                 return response.status(404).json({ message: "User not found" })
         })
