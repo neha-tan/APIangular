@@ -24,11 +24,13 @@ exports.signup = (request, response, next) => {
 
 };
 exports.signin = (request, response, next) => {
-    Customer.findOne({
-            customerEmail: request.body.customerEmail,
-            customerPassword: request.body.customerPassword
+    const { customerPassword, customerEmail } = request.body
+    Customer.find({
+            customerEmail: customerEmail,
+            customerPassword: customerPassword
         })
         .then(result => {
+            console.log(result);
             if (result)
                 return response.status(302).json(result);
             else
