@@ -1,6 +1,7 @@
 const { request, response } = require("express");
 const Customer = require('../model/customer.model');
 const Category = require('../model/category.model');
+const jwt = require = require('jsonwebtoken');
 
 exports.signup = (request, response, next) => {
 
