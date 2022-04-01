@@ -71,7 +71,7 @@ exports.update = (request, response, next) => {
     Category.updateOne({ _id: request.body.categoryId }, {
         $set: {
             categoryName: request.body.categoryName,
-            categoryImageUrl: "https://nehatan.herokuapp.com/category/add" + request.file.filename
+            categoryImageUrl: "http://localhost:3000/images/" + request.file.filename
         }
     }).then(result => {
         if (result.modifiedCount)
@@ -87,7 +87,7 @@ exports.add = (request, response, next) => {
     console.log(request.file);
     Category.create({
             categoryName: request.body.categoryName,
-            categoryImageUrl: "https://nehatan.herokuapp.com/category/add" + request.file.filename
+            categoryImageUrl: "http://localhost:3000/images/" + request.file.filename
         })
         .then(result => {
             return response.status(201).json(result);

@@ -10,6 +10,7 @@ var storage = multer.diskStorage({
     }
 });
 var upload = multer({ storage: storage });
+console.log('categoryName');
 router.post("/add", upload.single('categoryImage'), categoryController.add);
 router.get("/category-list", categoryController.getCategory);
 
