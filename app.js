@@ -1,4 +1,3 @@
-var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 const cors = require('cors');
@@ -12,7 +11,7 @@ mongoose.connect('mongodb+srv://root:vVevJky93l9yzQEL@neha.rvvto.mongodb.net/mak
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+const categoryRouter = require('./routes/category');
 
 
 app.use(cors());
@@ -28,12 +27,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/category', categoryRouter);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    next(createError(404));
-});
+
 
 // error handler
 app.use(function(err, req, res, next) {
