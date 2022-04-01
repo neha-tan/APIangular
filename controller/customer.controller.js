@@ -32,9 +32,15 @@ exports.signin = (request, response, next) => {
         })
         .then(result => {
             console.log(result);
-            if (result)
-                return response.status(201).json(result);
-            else
+            if (result) {
+                let paylod = { subject: result._id };
+                let token = jwt.sign(paylod, 'njsjfghfjgdfjhdjfdghgjhdfgjg');
+                return response.status(200).json({
+                    status: 'login success',
+                    current_user: result,
+                    token: token
+                })
+            } else
                 return response.status(404).json({ message: "User not found" })
         })
         .catch(err => {

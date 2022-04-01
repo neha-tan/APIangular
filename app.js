@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 const cors = require('cors');
 var app = express();
+var jwt = require('jsonwebtoken')
 
 const mongoose = require('mongoose')
 
