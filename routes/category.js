@@ -15,7 +15,7 @@ console.log('categoryName');
 router.post("/add", tokenVerification.varifyToken, upload.single('categoryImage'), categoryController.add);
 router.get("/category-list", categoryController.getCategory);
 
-router.delete("/delete-category", tokenVerification.varifyToken, categoryController.deleteCategory);
+router.delete("/delete-category", categoryController.deleteCategory);
 
 router.post("/update", upload.single('categoryImage'), categoryController.update);
 module.exports = router;
