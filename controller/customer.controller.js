@@ -35,14 +35,13 @@ exports.signin = (request, response, next) => {
             console.log(result);
             if (result) {
                 let paylod = { subject: result._id };
-                let token = jwt.sign(paylod, 'njsjfghfjgdfjhdjfdghgjhdfgjg');
+                let token = jwt.sign(paylod, 'abcdefghijklm');
                 return response.status(200).json({
                     status: 'login success',
                     current_user: result,
                     token: token
                 })
-            } else
-                return response.status(404).json({ message: "User not found" })
+            }
         })
         .catch(err => {
             console.log(err)
@@ -53,7 +52,7 @@ exports.signin = (request, response, next) => {
 
 
 exports.deleteCategory = (request, response) => {
-    Category.deleteOne({ _id: request.params.id })
+    Category.deleteOne({ _id: request.body.id })
         .then(result => {
             if (result.deletedCount)
                 return response.status(202).json({ message: 'success' });
