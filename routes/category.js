@@ -13,9 +13,9 @@ var upload = multer({ storage: storage });
 console.log('categoryName');
 
 router.post("/add", tokenVerification.varifyToken, upload.single('categoryImage'), categoryController.add);
-router.get("/category-list", categoryController.getCategory);
+router.get("/category-list", tokenVerification.varifyToken, categoryController.getCategory);
 
-router.post("/delete-category", categoryController.deleteCategory);
+router.post("/delete-category", tokenVerification.varifyToken, categoryController.deleteCategory);
 
 router.post("/update", upload.single('categoryImage'), categoryController.update);
 module.exports = router;
