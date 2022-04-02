@@ -56,7 +56,6 @@ exports.deleteCategory = (request, response) => {
         .then(result => {
             console.log(result)
             if (result.deletedCount)
-
                 return response.status(202).json({ message: 'success' });
             else
                 return response.status(204).json({ message: 'not deleted' });
